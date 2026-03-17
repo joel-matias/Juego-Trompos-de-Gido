@@ -16,6 +16,10 @@
         <div class="pill">Tiempo: <b id="ui-time">0.0</b>s</div>
         <div class="pill">Puntaje: <b id="ui-score">0</b></div>
         <div class="pill">Récord: <b id="ui-best">0</b></div>
+        <div class="pill pill-level">
+          <span>Nivel: <b id="ui-level">1</b></span>
+          <div class="level-track"><div class="level-fill" id="ui-level-bar"></div></div>
+        </div>
       </div>
       <button class="btn" id="btn-toggle">Iniciar</button>
     </header>
@@ -24,16 +28,16 @@
       <div class="stage">
         <canvas id="game" width="960" height="540" aria-label="Trompos de Gido"></canvas>
         <div class="overlay" id="overlay">
-          <div class="card" id="help">
-
-          </div>
+          <div class="card" id="help"></div>
         </div>
       </div>
+      <div class="modifiers-strip" id="modifiers-strip"></div>
     </main>
   </div>
   <script src="js/audio.js"></script>
   <script src="js/top.js"></script>
   <script src="js/gon.js"></script>
+  <script src="js/hud.js"></script>
   <script src="js/game.js"></script>
 </body>
 

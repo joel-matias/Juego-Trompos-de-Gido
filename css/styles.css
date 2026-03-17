@@ -6,6 +6,7 @@
   --muted:  #94a3b8;
   --good:   #22c55e;
   --gold:   #fbbf24;
+  --cyan:   #22d3ee;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -51,6 +52,7 @@ header {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .pill {
@@ -66,6 +68,32 @@ header {
 .pill b {
   color: var(--text);
   font-weight: 700;
+}
+
+/* ── Nivel con barra de progreso ── */
+.pill-level {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 5px 12px 6px;
+  border-radius: 12px;
+  min-width: 90px;
+}
+
+.level-track {
+  height: 3px;
+  background: #1e2e4a;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.level-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  border-radius: 999px;
+  transition: width 0.15s linear;
+  box-shadow: 0 0 6px rgba(251,191,36,.5);
 }
 
 /* ── Botones ── */
@@ -95,7 +123,9 @@ header {
 main {
   display: grid;
   place-items: center;
-  padding: 8px;
+  padding: 8px 8px 4px;
+  align-content: start;
+  gap: 8px;
 }
 
 .stage {
@@ -107,7 +137,7 @@ canvas {
   display: block;
   width: min(100%, 1100px);
   height: auto;
-  max-height: calc(100vh - 140px);
+  max-height: calc(100vh - 160px);
   background: #080d18;
   border: 1px solid #182540;
   border-radius: 16px;
@@ -182,3 +212,61 @@ canvas {
 }
 
 a { color: var(--accent); }
+
+/* ── Modificadores de dificultad ── */
+.modifiers-strip {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2px 0;
+  width: min(100%, 1100px);
+}
+
+.mod-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid #1a2540;
+  background: #080d18;
+  color: #2d3f5e;
+  white-space: nowrap;
+  transition: color .35s, border-color .35s, background .35s, box-shadow .35s;
+  cursor: default;
+}
+
+.mod-pill.active {
+  color: var(--text);
+  border-color: #2a3d5e;
+  background: #0d1728;
+}
+
+.mod-pill.active.accent {
+  color: var(--gold);
+  border-color: rgba(251,191,36,.4);
+  background: rgba(251,191,36,.06);
+  box-shadow: 0 0 10px rgba(251,191,36,.15);
+}
+
+/* ── Start screen modifiers preview ── */
+.start-mods {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: .8rem 0 .4rem;
+}
+
+.start-mod {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #1e3050;
+  color: var(--muted);
+  background: #0a1525;
+}
+
+.start-mod b {
+  color: var(--gold);
+}
